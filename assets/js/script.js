@@ -3,6 +3,8 @@ const citySearchInputEl = document.querySelector('#cityName');
 const searchButton = document.querySelector('#searchBtn');
 const cityPrimarySearch = document.querySelector("#searchedCityPrimary")
 const cityPrimaryTemp = document.querySelector("#cityPrimaryTemp")
+const cityPrimaryWind = document.querySelector("#cityPrimaryWind")
+const cityPrimaryHumidity = document.querySelector("#cityPrimaryHumidity")
 const mostRecentSearchContainerEL = document.querySelector('#mostRecentSearchContainer');
 const citySearchedContainerEl = document.querySelector('#citySearchedContainer');
 const apiKey = '41eb6956db0f8e0973687b41c218ffa0'
@@ -11,17 +13,22 @@ const apiKey = '41eb6956db0f8e0973687b41c218ffa0'
 
 function getLatLon() {
     let city = citySearchInputEl.value.trim();
-    console.log(city)
-    let apiUrl = ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
-    console.log(apiUrl)
+    console.log(city);
+    let apiUrl = ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey);
+    console.log(apiUrl);
 
     fetch(apiUrl).then(function (response) {
         response.json().then(function (data) {
-            console.log(data)
-            let today = new Date().toLocaleDateString()
-            cityPrimarySearch.textContent = data.name + ' (' + today + ')'
-            let tempConversion = data.main.temp
-            cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F'
+            console.log(data);
+            let today = new Date().toLocaleDateString();
+            cityPrimarySearch.textContent = data.name + ' (' + today + ')';
+            let tempConversion = data.main.temp;
+            cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
+            let primaryWind = data.wind.speed;
+            console.log(primaryWind);
+            cityPrimaryWind.textContent = 'Wind: ' + primaryWind + ' MPH';
+            let primaryHumidity = data.main.humidity;
+            cityPrimaryHumidity.textContent = 'Humidity: ' + primaryHumidity + ' %';
         })
     })
 }
