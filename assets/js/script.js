@@ -1,28 +1,29 @@
 const cityFormEL = document.querySelector('#cityFormEl');
 const citySearchInputEl = document.querySelector('#cityName');
 const searchButton = document.querySelector('#searchBtn');
-// const artistsSimilarToEl = document.querySelector('#artistsSimilarToEl');
+const cityPrimarySearch = document.querySelector("#searchedCityPrimary")
+const cityPrimaryTemp = document.querySelector("#cityPrimaryTemp")
 const mostRecentSearchContainerEL = document.querySelector('#mostRecentSearchContainer');
-// const searchedArtistURL = document.querySelector('#searchedArtistURL');
 const citySearchedContainerEl = document.querySelector('#citySearchedContainer');
 const apiKey = '41eb6956db0f8e0973687b41c218ffa0'
 
 
 
 function getLatLon() {
-    let city = citySearchInputEl.value;
+    let city = citySearchInputEl.value.trim();
     console.log(city)
-    let apiUrl = ('api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
+    let apiUrl = ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
     console.log(apiUrl)
 
     fetch(apiUrl).then(function (response) {
         response.json().then(function (data) {
             console.log(data)
-
+            let today = new Date().toLocaleDateString()
+            cityPrimarySearch.textContent = data.name + ' (' + today + ')'
+            let tempConversion = data.main.temp
+            cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F'
         })
-
-    }
-    )
+    })
 }
 
 searchButton.addEventListener('click', getLatLon)
