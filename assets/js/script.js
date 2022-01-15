@@ -1,10 +1,31 @@
 const cityFormEL = document.querySelector('#cityFormEl');
 const citySearchInputEl = document.querySelector('#cityName');
+const searchButton = document.querySelector('#searchBtn');
 // const artistsSimilarToEl = document.querySelector('#artistsSimilarToEl');
 const mostRecentSearchContainerEL = document.querySelector('#mostRecentSearchContainer');
-const searchedArtistURL = document.querySelector('#searchedArtistURL');
+// const searchedArtistURL = document.querySelector('#searchedArtistURL');
 const citySearchedContainerEl = document.querySelector('#citySearchedContainer');
+const apiKey = '41eb6956db0f8e0973687b41c218ffa0'
 
+
+
+function getLatLon() {
+    let city = citySearchInputEl.value;
+    console.log(city)
+    let apiUrl = ('api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
+    console.log(apiUrl)
+
+    fetch(apiUrl).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data)
+
+        })
+
+    }
+    )
+}
+
+searchButton.addEventListener('click', getLatLon)
 
 
 

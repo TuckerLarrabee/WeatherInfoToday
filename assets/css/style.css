@@ -1,5 +1,9 @@
-* {
+/* * {
     outline: 1px orange solid;
+} */
+
+.columns {
+    margin-left: 0rem;
 }
 
 #nav {
@@ -80,7 +84,28 @@
     display: flex;
     flex-wrap: wrap;
 }
+/* 
+City Searched Forecast */
 
+#citySearchedInfoEl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 45%;
+    border: rgb(107, 129, 172) 1.5px solid;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    margin: 10px;
+    padding: 8px;
+}
+
+#mainFlex {
+    height: 100vh;
+}
+
+#fiveDayHeader {
+    margin-bottom: 7px;
+}
 
 
 /* Five Day Forecast */
@@ -91,7 +116,7 @@
 
 .allCardsContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 
