@@ -13,13 +13,92 @@
   </head>
 
   <body>
-    <nav id="nav" class="navbar" role="navigation" aria-label="main navigation"> 
-        <a id="navLink" class="navbar-item" href="https://openweathermap.org/api">
-          <span>Weather</span>
-          <img src="./assets/images/navweather.png" alt="Weather Icons that hyperlink to OpenWeather API Documentation">
-          <span>Info</span>
-        </a> 
-    </nav>
+
+    <header>
+      <nav id="nav" class="navbar" role="navigation" aria-label="main navigation"> 
+          <a id="navLink" class="navbar-item" href="https://openweathermap.org/api">
+            <span>Weather</span>
+            <img src="./assets/images/navweather.png" alt="Weather Icons that hyperlink to OpenWeather API Documentation">
+            <span>Info</span>
+          </a> 
+      </nav>
+    </header>
+
+    <main class="columns">
+      <div id="searchedCityEl" class="column is-one-quarter is-one-third-mobile">
+        <div id="citySearchedEl">
+          <form id="cityFormEl" class="field">
+            <label id="labelText" class="label"> Search for A City:
+            </label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  name="cityName"
+                  id="cityName"
+                  placeholder="San Diego"
+                />
+                <button id="searchBtn" type="submit">
+                  Search
+                </button>
+              </div>
+          </form>
+        </div>
+
+        <div id="searchContainer" class="">
+          <div id="mostRecentSearchContainer" class="">
+            <!-- Container for the artist just searched -->
+          </div>
+          <div id="artistsSearchedContainer" class="">
+            <!-- Artists already searched for will be displayed here as buttons that, when clicked, will bring up the desired information -->
+          </div>
+        </div>
+      </div>
+      
+      <div id="artistInformationContainer" class="column">
+        <div id="relatedArtistsEl">
+          <h4>
+            <p id="relatedToX"></p>
+            <a id="searchedArtistURL" href="">
+          </h4>
+          <div id="relatedArtistsContainerEl">
+            <div id="relatedArtistOne">
+              <a id="relatedArtistOneURL" href="">
+                <h5 id="relatedArtistOneName"></h5>
+                <img />
+              </a>
+            </div>
+            <div id="relatedArtistTwo">
+              <a id="relatedArtistTwoURL" href="">
+                <h5 id="relatedArtistTwoName"></h5>
+                <img />
+              </a>
+            </div>
+            <div id="relatedArtistThree">
+              <a id="relatedArtistThreeURL" href="">
+                <h5 id="relatedArtistThreeName"></h5>
+                <img />
+              </a>
+            </div>
+            <div id="relatedArtistFour">
+              <a id="relatedArtistFourURL" href="">
+                <h5 id="relatedArtistFourName"></h5>
+                <img />
+              </a>
+            </div>
+            <div id="relatedArtistFive">
+              <a id="relatedArtistFiveURL" href="">
+                <h5 id="relatedArtistFiveName"></h5>
+                <img />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="youTubeEl"></div>
+      </div>
+    </main>
+
+    </main>
 
 
 
