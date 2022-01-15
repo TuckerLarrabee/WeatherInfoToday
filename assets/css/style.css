@@ -38,7 +38,7 @@
 
 #labelText {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.8vw;
+    font-size: 1.6rem;
     padding: 10px 10px 0px 10px;
     margin-left: 5px;
 }
@@ -104,7 +104,7 @@ City Searched Forecast */
 
 #searchedCityPrimary {
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 #mainFlex {
