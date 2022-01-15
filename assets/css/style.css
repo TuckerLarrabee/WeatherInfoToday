@@ -1,0 +1,23 @@
+/* * {
+    outline: 1px orange solid;
+} */
+
+#nav {
+    justify-content: space-around;
+    background-color: rgb(13, 28, 59);
+}
+
+#navLink {
+    width: 30%;
+    justify-content: space-around;
+}
+
+#navLink img {
+    /* width="112" height="28" */
+   border-radius: 10px;
+}
+
+#navLink span {
+    font-family: 'Lobster', cursive;
+    font-size: 2.2vw;
+}
