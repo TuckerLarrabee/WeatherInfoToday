@@ -234,7 +234,7 @@ function getCityInfo(cityName) {
             let today = new Date().toLocaleDateString();
             let weatherIconPrimary = data.weather[0].icon;
             // cityPrimarySearch.textContent = data.name + ' (' + today + ')';
-            cityPrimarySearch.innerHTML = data.name + ' (' + today + ')' + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconPrimary + "@4x.png'>";
+            cityPrimarySearch.innerHTML = '<p>' + data.name + ' (' + today + ')' + '</p>' + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconPrimary + "@4x.png'>";
 
             let tempConversion = data.main.temp;
             cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';

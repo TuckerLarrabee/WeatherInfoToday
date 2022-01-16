@@ -111,13 +111,21 @@ City Searched Forecast */
 }
 
 #primaryWeatherIcon {
-    height: 30%;
+    height: 200%;
+}
+
+#mainCityText {
+    height: 25%;
+    display: flex;
 }
 
 #searchedCityPrimary {
     display: flex;
+    justify-content: center;
     font-weight: bold;
     font-size: 1.6rem;
+    height: 100%;
+    align-items: center;
 }
 
 #mainFlex {
