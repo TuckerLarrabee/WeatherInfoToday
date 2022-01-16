@@ -102,11 +102,20 @@ City Searched Forecast */
     padding: 8px;
 }
 
+.hidden {
+    display: none;
+}
+
 #citySearchedInfoEl p {
     font-weight: bold;
 }
 
+#primaryWeatherIcon {
+    height: 30%;
+}
+
 #searchedCityPrimary {
+    display: flex;
     font-weight: bold;
     font-size: 1.6rem;
 }
