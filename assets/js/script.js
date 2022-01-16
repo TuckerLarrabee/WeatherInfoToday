@@ -6,6 +6,7 @@ const cityPrimaryTemp = document.querySelector("#cityPrimaryTemp");
 const cityPrimaryWind = document.querySelector("#cityPrimaryWind");
 const cityPrimaryHumidity = document.querySelector("#cityPrimaryHumidity");
 const cityPrimaryUV = document.querySelector("#cityPrimaryUV");
+const cityUVButton = document.querySelector("#UVButton");
 const mostRecentSearchContainerEL = document.querySelector('#mostRecentSearchContainer');
 const citySearchedContainerEl = document.querySelector('#citySearchedContainer');
 const apiKey = '41eb6956db0f8e0973687b41c218ffa0'
@@ -152,7 +153,16 @@ function getFiveDay(lat, lon) {
 
             //Add UV To Primary Forecast
             let primaryUV = data.daily[0].uvi;
-            cityPrimaryUV.textContent = 'UV Index: ' + primaryUV;
+            // cityPrimaryUV.textContent = 'UV Index: ';
+            cityUVButton.textContent = primaryUV;
+            cityUVButton.classList.remove('is-success', 'is-warning', 'is-danger');
+            if (primaryUV < 2) {
+                cityUVButton.classList.add('button', 'is-success', 'is-rounded');
+            } else if (primaryUV < 4) {
+                cityUVButton.classList.add('button', 'is-warning', 'is-rounded');
+            } else {
+                cityUVButton.classList.add('button', 'is-danger', 'is-rounded')
+            }
 
         })
     })

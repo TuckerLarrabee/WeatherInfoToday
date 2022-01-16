@@ -102,6 +102,10 @@ City Searched Forecast */
     padding: 8px;
 }
 
+#citySearchedInfoEl p {
+    font-weight: bold;
+}
+
 #searchedCityPrimary {
     font-weight: bold;
     font-size: 1.6rem;
