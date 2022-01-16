@@ -25,7 +25,7 @@
     </header>
 
     <main id="mainFlex" class="columns">
-      <div id="searchedCityEl" class="column is-one-quarter is-one-third-mobile">
+      <div id="searchedCityEl" class="column is-one-quarter is-full-mobile">
         <div id="citySearchedEl">
           <form id="cityFormEl" class="field">
             <label id="labelText" class="label"> Search for A City:
@@ -46,16 +46,16 @@
         </div>
       </div>
 
-      <div class="column is-one-half-mobile is-one-half">
-        <div id="citySearchedInfoEl"> 
-          <h3 id="mainCityText"> <p id="searchedCityPrimary">...</p></h3>
-          <p id="cityPrimaryTemp">Temp: </p>
-          <p id="cityPrimaryWind">Wind: </p>
-          <p id="cityPrimaryHumidity">Humidity: </p>
-          <div>
-            <p id="cityPrimaryUV">UV Index: <button class="hidden" id="UVButton"></button> </p>
+      <div class="column is-full-mobile">
+          <div id="citySearchedInfoEl"> 
+            <h3 id="mainCityText"> <p id="searchedCityPrimary">...</p></h3>
+            <p id="cityPrimaryTemp">Temp: </p>
+            <p id="cityPrimaryWind">Wind: </p>
+            <p id="cityPrimaryHumidity">Humidity: </p>
+            <div id="uvContainer">
+              <p id="cityPrimaryUV"><p id="uvText">UV Index:    </p><button class="hidden" id="UVButton"></button> </p>
+            </div>
           </div>
-        </div>
 
         <div id="fiveDayForeCast" class="">
           <div id="fiveDayHeader">
@@ -112,6 +112,7 @@
                 </div>              
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

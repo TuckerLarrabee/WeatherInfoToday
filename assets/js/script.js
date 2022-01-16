@@ -7,6 +7,7 @@ const cityPrimaryTemp = document.querySelector("#cityPrimaryTemp");
 const cityPrimaryWind = document.querySelector("#cityPrimaryWind");
 const cityPrimaryHumidity = document.querySelector("#cityPrimaryHumidity");
 const cityPrimaryUV = document.querySelector("#cityPrimaryUV");
+const cityUVText = document.querySelector("#uvText");
 const cityUVButton = document.querySelector("#UVButton");
 const mostRecentSearchContainerEL = document.querySelector('#mostRecentSearchContainer');
 const citySearchedContainerEl = document.querySelector('#citySearchedContainer');
@@ -163,6 +164,7 @@ function getFiveDay(lat, lon) {
             //Add UV To Primary Forecast
             let primaryUV = data.daily[0].uvi;
             // cityPrimaryUV.textContent = 'UV Index: ';
+            cityUVText.innerHTML = '<b>' + 'UV Index: ' + '</b>';
             cityUVButton.textContent = primaryUV;
             cityUVButton.classList.remove('hidden', 'is-success', 'is-warning', 'is-danger');
             if (primaryUV < 2) {
@@ -237,12 +239,12 @@ function getCityInfo(cityName) {
             cityPrimarySearch.innerHTML = '<p>' + data.name + ' (' + today + ')' + '</p>' + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconPrimary + "@4x.png'>";
 
             let tempConversion = data.main.temp;
-            cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
+            cityPrimaryTemp.innerHTML = '<b>' + 'Temp: ' + '</b>' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
             let primaryWind = data.wind.speed;
             console.log(primaryWind);
-            cityPrimaryWind.textContent = 'Wind: ' + primaryWind + ' MPH';
+            cityPrimaryWind.innerHTML = '<b>' + 'Wind: ' + '</b>' + primaryWind + ' MPH';
             let primaryHumidity = data.main.humidity;
-            cityPrimaryHumidity.textContent = 'Humidity: ' + primaryHumidity + ' %';
+            cityPrimaryHumidity.innerHTML = '<b>' + 'Humidity: ' + '</b>' + primaryHumidity + ' %';
 
             let lat = data.coord.lat;
             let lon = data.coord.lon;

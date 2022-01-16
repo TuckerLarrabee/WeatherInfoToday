@@ -6,6 +6,10 @@
     margin-left: 0rem;
 }
 
+p {
+    font-size: 1.4rem;
+}
+
 #nav {
     justify-content: space-around;
     background-color: rgb(13, 28, 59);
@@ -102,13 +106,21 @@ City Searched Forecast */
     padding: 8px;
 }
 
+#uvContainer {
+    display: flex;
+}
+
+#UVButton {
+    margin-left: 5px;
+}
+
 .hidden {
     display: none;
 }
 
-#citySearchedInfoEl p {
+/* #citySearchedInfoEl p {
     font-weight: bold;
-}
+} */
 
 #primaryWeatherIcon {
     height: 200%;
@@ -128,6 +140,10 @@ City Searched Forecast */
     align-items: center;
 }
 
+/* #searchedCityPrimary p {
+    font-size: 2rem;
+} */
+
 #mainFlex {
     height: 100vh;
 }
@@ -136,6 +152,9 @@ City Searched Forecast */
     margin-bottom: 7px;
 }
 
+#fiveDayHeader h3 {
+    font-size: 1.4rem;
+}
 
 /* Five Day Forecast */
 #fiveDayHeader {
@@ -182,9 +201,9 @@ Media Queries Start */
         font-size: 6vw;
   }
 }
-
+/* 
 @media screen and (max-width: 769px) {
     #mainFlex {
         display: flex;
     }
-}
+}  */
