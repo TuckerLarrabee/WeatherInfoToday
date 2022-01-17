@@ -48,29 +48,33 @@ function getLatLon() {
     console.log(apiUrl);
 
     fetch(apiUrl).then(function (response) {
-        response.json().then(function (data) {
-            console.log(data);
-            let today = new Date().toLocaleDateString();
-            cityPrimarySearch.textContent = data.name + ' (' + today + ')';
+        if (response.ok) {
+            response.json().then(function (data) {
+                console.log(data);
+                let today = new Date().toLocaleDateString();
+                cityPrimarySearch.textContent = data.name + ' (' + today + ')';
 
-            let tempConversion = data.main.temp;
-            cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
+                let tempConversion = data.main.temp;
+                cityPrimaryTemp.textContent = 'Temp: ' + ((tempConversion - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
 
-            let primaryWind = data.wind.speed;
-            console.log(primaryWind);
-            cityPrimaryWind.textContent = 'Wind: ' + primaryWind + ' MPH';
+                let primaryWind = data.wind.speed;
+                console.log(primaryWind);
+                cityPrimaryWind.textContent = 'Wind: ' + primaryWind + ' MPH';
 
-            let primaryHumidity = data.main.humidity;
-            cityPrimaryHumidity.textContent = 'Humidity: ' + primaryHumidity + ' %';
+                let primaryHumidity = data.main.humidity;
+                cityPrimaryHumidity.textContent = 'Humidity: ' + primaryHumidity + ' %';
 
-            let lat = data.coord.lat;
-            let lon = data.coord.lon;
-            getFiveDay(lat, lon);
-        })
+                let lat = data.coord.lat;
+                let lon = data.coord.lon;
+                getFiveDay(lat, lon);
+            })
+        } else {
+            alert("Error: City Not Found");
+        }
     })
 }
 
-searchButton.addEventListener('click', getLatLon)
+// searchButton.addEventListener('submit', getLatLon)
 
 
 function getFiveDay(lat, lon) {
@@ -86,7 +90,7 @@ function getFiveDay(lat, lon) {
             let dateOne = data.daily[1].dt;
             let forecastDate = new Date(dateOne * 1000).toLocaleDateString();
             let weatherIconFirst = data.daily[1].weather[0].icon;
-            forecastDateOne.innerHTML = "<b>" + forecastDate + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFirst + "@4x.png'>";
+            forecastDateOne.innerHTML = "<b>" + forecastDate + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFirst + ".png'>";
             //next day forecast adding temp to card[0]
             let tempConversionOne = data.daily[1].temp.day;
             forecastTempOne.textContent = 'Temp: ' + ((tempConversionOne - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
@@ -102,7 +106,7 @@ function getFiveDay(lat, lon) {
             let dateTwo = data.daily[2].dt;
             let forecastDateSecond = new Date(dateTwo * 1000).toLocaleDateString();
             let weatherIconSecond = data.daily[2].weather[0].icon;
-            forecastDateTwo.innerHTML = "<b>" + forecastDateSecond + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconSecond + "@4x.png'>";
+            forecastDateTwo.innerHTML = "<b>" + forecastDateSecond + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconSecond + ".png'>";
             //next day forecast adding temp to card[1]
             let tempConversionTwo = data.daily[2].temp.day;
             forecastTempTwo.textContent = 'Temp: ' + ((tempConversionTwo - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
@@ -118,7 +122,7 @@ function getFiveDay(lat, lon) {
             let dateThree = data.daily[3].dt;
             let forecastDateThird = new Date(dateThree * 1000).toLocaleDateString();
             let weatherIconThird = data.daily[3].weather[0].icon;
-            forecastDateThree.innerHTML = "<b>" + forecastDateThird + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconThird + "@4x.png'>";
+            forecastDateThree.innerHTML = "<b>" + forecastDateThird + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconThird + ".png'>";
             //next day forecast adding temp to card[2]
             let tempConversionThree = data.daily[3].temp.day;
             forecastTempThree.textContent = 'Temp: ' + ((tempConversionThree - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
@@ -134,7 +138,7 @@ function getFiveDay(lat, lon) {
             let dateFour = data.daily[4].dt;
             let forecastDateFourth = new Date(dateFour * 1000).toLocaleDateString();
             let weatherIconFourth = data.daily[4].weather[0].icon;
-            forecastDateFour.innerHTML = "<b>" + forecastDateFourth + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFourth + "@4x.png'>";
+            forecastDateFour.innerHTML = "<b>" + forecastDateFourth + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFourth + ".png'>";
             //next day forecast adding temp to card[3]
             let tempConversionFour = data.daily[4].temp.day;
             forecastTempFour.textContent = 'Temp: ' + ((tempConversionFour - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
@@ -150,7 +154,7 @@ function getFiveDay(lat, lon) {
             let dateFive = data.daily[5].dt;
             let forecastDateFifth = new Date(dateFive * 1000).toLocaleDateString();
             let weatherIconFifth = data.daily[5].weather[0].icon;
-            forecastDateFive.innerHTML = "<b>" + forecastDateFifth + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFifth + "@4x.png'>";
+            forecastDateFive.innerHTML = "<b>" + forecastDateFifth + "</b>" + "<img id='primaryWeatherIcon' src='https://openweathermap.org/img/wn/" + weatherIconFifth + ".png'>";
             //next day forecast adding temp to card[4]
             let tempConversionFive = data.daily[5].temp.day;
             forecastTempFive.textContent = 'Temp: ' + ((tempConversionFive - 273.15) * 9 / 5 + 32).toFixed(2) + '\u00B0F';
@@ -190,7 +194,7 @@ function searchedCities() {
         cityButtonEl.classList.add("is-info")
         cityButtonEl.classList.add("is-light")
         cityButtonEl.setAttribute('id', 'newCityButton')
-        citySearchedContainerEl.append(cityButtonEl);
+        citySearchedContainerEl.appendChild(cityButtonEl);
 
         // together with the event listener below, this function allows the user to see searched-for artist's information again
         function searchedCityInfo() {
@@ -214,7 +218,7 @@ function addCity() {
     cityButtonEl.classList.add("is-info")
     cityButtonEl.classList.add("is-light")
     cityButtonEl.setAttribute('id', 'newCityButton')
-    mostRecentSearchContainerEL.appendChild(cityButtonEl);
+    citySearchedContainerEl.prepend(cityButtonEl);
 
     // together with the event listener below, this function allows the user to see a just-searched-for artist's information again if they click back to it after clicking on an older searched-for artist's button
     function searchedCityInfo() {
@@ -262,6 +266,7 @@ function formSubmitHandler(event) {
     let cityName = citySearchInputEl.value.trim();
 
     if (cityName) {
+        getLatLon()
         localStorage.setItem(JSON.stringify(cityName), JSON.stringify(cityName));
         getCityInfo(cityName);
         addCity();
